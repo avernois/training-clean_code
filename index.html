@@ -47,44 +47,39 @@
 
                 
                 <section>
+
                     <section>
                         <h2>Thanks</h2>
-                        <p>ITAKE team
-                        <p>
-                            Jérôme Avoustin
-                            <br>
-                            <small> who wrote the biggest part of this presentation :)</small>
-                        </p>
+                    
+                        <h3>ITAKE organizers</h3>
+                        
+                        <h3 class="fragment">Jérôme Avoustin</h3>
+                        
                         <h3 class="fragment">You !</h3>
                     </section>
 
                     <section>
                         <h2>Antoine Vernois</h2>
-                        Software Craftsman - Freelance
-
+                        <p>
+                            Journeyman<br>
+                            <a href="http://twitter.com/avernois">@avernois</a>
+                        </p>
                     </section>
+
+
                     <section>
-                        <h2>Agenda</h2>
-                        <ul>
-                            <li>Why clean code ?</li>
-                            <li>What is clean code ?</li>
-                            <li>bad smells</li>
-                            <li>good things</li>
-                        </ul>
+                        <img src="clean_code.jpg">
                     </section>
 
                     <section>
                         <h2>Disclaimer</h2>
                         <ul>
                             <li>Object Oriented Language</li>
-                            <li>We won't go into details</li>
+                            <li>I won't go into details</li>
                             <li>Some points will look stupidly simple</li>
+                            <li>I will repeat myself</li>
                         </ul>
                     </section>
-                    <section>
-                        <img src="clean_code.jpg">
-                    </section>
-
                 </section>
 
                 <section>
@@ -105,7 +100,7 @@
 
                     <section>
                         <h2>Agile & Quality (again)</h2>
-                        <blockquote>
+                        <blockquote class="fragment">
                             Responding to change over following a plan.
                             <div align="right">
                                 <small>Agile Manifesto, 4th value</small>
@@ -125,19 +120,32 @@
                 <section>
                     <section>
                         <h2>What is a clean code ?</h2>
-                        <ul>
-                            <li>tested !</li>
-                            <li>easy to read</li>
-                            <li>reveals its intention</li>
-                            <li>no duplication</li>
-                            <li>dependance are explicite</li>
-                        </ul>
-
+                        <blockquote class="fragment">
+                            Clean code is not about beautifullness,<br>
+                             it's about goodness.
+                            <div align="right">
+                                Rebecca Wirfs-Brock
+                            </div>
+                        </blockquote>
+                        
+                        <blockquote class="fragment">
+                            <ul>
+                                <li>tested !</li>
+                                <li>no duplication</li>
+                                <li>reveals its intention</li>
+                                <li>easy to read</li>
+                            </ul>
+                            <div align="right" class="fragment">
+                                B. Stroustrup, R. Jeffries, K. Beck, M. Feathers, W. Cunningham, ...
+                            </div>
+                        </blockquote>
+                        
+                        
                     </section>
                     <section>
                         <h2>About tests</h2>
                         <p>When I hear tests are for those who don't know how to code </p>
-                        <img src="test.gif" height="300" class="fragment">
+                        <img src="test.gif" height="350" class="fragment">
                     </section>
 
                 </section>
@@ -177,7 +185,7 @@
                     </section>
                     <section>
 
-                        <h2>Naming</h2>
+                        <h2 class="fragment highlight-green">Good Naming</h2>
                         <ul>
                             <li>names should reveal the intent</li>
                             <li><kbd>alt</kbd>+shift+r is your friend (in eclipse)</li>
@@ -188,7 +196,7 @@
                     </section>
 
                     <section>
-                        <h2>Avoid duplication</h2>
+                        <h2 class="fragment highlight-red">Duplication</h2>
                         <h3>Don't repeat yourself !</h3>
                     </section>
 
@@ -201,13 +209,16 @@
                         <h2>Abstraction</h2>
                         <h3>Demeter's Law</h3>
                         <h4>Don't talk to stranger</h4>
+<pre><code data-trim contenteditable>
+a.getB().getC().doThings();
+</code></pre>                        
                     </section>
 
 
                     <section>
-                        <h2>Tight Coupling</h2>
-                        <h3>It's bad !</h3>
-                        <ul>
+                        <h2 class="fragment highlight-red">Tight Coupling</h2>
+                        <h3 class="fragment">It's bad !</h3>
+                        <ul class="fragment">
                             <li>Tests</li>
                             <li>Reuse</li>
                             <li>...</li>
@@ -215,7 +226,7 @@
                     </section>
 
                     <section>
-                        <h2>Dependancy Injection</h2>
+                        <h2 class="fragment highlight-green">Dependancy Injection</h2>
 <pre><code data-trim contenteditable>
 public class A {
     private B b;
@@ -239,7 +250,7 @@ public class A {
                     </section>
 
                     <section>
-                        <h2>Comments</h2>
+                        <h2 class="fragment highlight-red">Comments</h2>
 
                         <blockquote>Comments are always failure
                             <div align="right"><small>Uncle Bob</small></div>
@@ -322,10 +333,10 @@ public void setPort(Port port) {this.port=port}
                 <section>
                     <section>
                         <h2>some more advices</h2>
-                        <p>Don't think inheritance, think polymorphism</p>
-                        <p>Don't think if/switch, think polymorphism</p>
+                        <p>Don't think inheritance, think <span class="fragment highlight-red">polymorphism</span></p>
+                        <p>Don't think if/switch, think <span class="fragment highlight-red">polymorphism</span></p>
                         <br><br>
-                        <h3 class="fragment">avoid singletons</h3>
+                        <h3 class="fragment">avoid <span class="fragment highlight-red">singletons</a></h3>
                         <small class="fragment">Did i warn you i will repeat myself ?</small>
 
                     </section>
@@ -359,7 +370,9 @@ public void setPort(Port port) {this.port=port}
                             </div>
                         </blockquote>
                     </section>
-
+                    <section>
+                        <h1>And all of this, it starts next time you'll read or write code</h1>
+                    </section>
                     <section>
                         <h1>Thank You !</h1>
                         <h3 class="fragment">any question ?</h3>
@@ -402,3 +415,5 @@ public void setPort(Port port) {this.port=port}
 
     </body>
 </html>
+
+a.b.c.d
