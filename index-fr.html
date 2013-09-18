@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+
+        <title>Clean Code en pratique</title>
+
+        <meta name="description" content="Clean Code in Practice">
+        <meta name="author" content="Antoine Vernois et Jérôme Avoustin">
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+        <link rel="stylesheet" href="css/reveal.min.css">
+        <link rel="stylesheet" href="css/theme/default.css" id="theme">
+
+        <!-- For syntax highlighting -->
+        <link rel="stylesheet" href="lib/css/zenburn.css">
+
+        <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+        <script>
+            document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+        </script>
+
+        <!--[if lt IE 9]>
+        <script src="lib/js/html5shiv.js"></script>
+        <![endif]-->
+    </head>
+
+    <body>
+
+        <div class="reveal">
+
+            <div class="slides">
+
+                <section>
+                    <h1>Clean Code</h1>
+                    <h2>en practique</h2>
+                    
+                    <p>
+                        <small><a href="http://blog.crafting-labs.fr">Antoine Vernois</a> / <a href="http://twitter.com/avernois">@avernois</a></small>
+                    </p>
+                </section>
+
+                
+                <section>
+                    <section>
+                        <h2>Antoine Vernois</h2>
+                        <p>
+                            Journeyman<br>
+                            <a href="http://twitter.com/avernois">@avernois</a>
+                        </p>
+                    </section>
+
+                    <section>
+                        <h2>Remerciements</h2>
+                                           
+                        <h3 class="fragment">Jérôme Avoustin</h3>
+                    </section>
+
+                    <section>
+                        <img src="images/clean_code.jpg">
+                    </section>
+
+                    <section>
+                        <h2>Disclaimer</h2>
+                        <ul>
+                            <li>pour les langages orientés objets</li>
+                            <li>je ne rentrerai pas dans les détails</li>
+                            <li>certains points paraîtront stupidement simple</li>
+                            <li>je vais me répéter</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Agilité et Qualité</h2>
+                        <blockquote>
+                            <p>Une attention <span class="fragment highlight-green">continue</span> à l'excellence technique et au bon design améliore l'agilité.</p>
+                            <div align="right" class="fragment">
+                                <small>Manifeste Agile, 9è principe</small>
+                            </div>
+                        </blockquote>                       
+                    </section>
+
+                    <section>
+                        <h2>Pourquoi la qualité ?</h2>
+                        <p></p>
+                    </section>
+
+                    <section>
+                        <h2>Agilité et Qualité (le retour)</h2>
+                        <blockquote class="fragment">
+                            Répondre au changement plutôt que la poursuite d'un plan
+                            <div align="right">
+                                <small>Manifeste agile, 4è valeur</small>
+                            </div>
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <h2>C'est quoi la qualité ?</h2>
+                        <blockquote>Un logiciel est de bonne qualité si le coût d'ajout d'une fonctionnalité est constant dans le temps.
+                            <div align="right">
+                                <small>Jérôme Avoustin</small>
+                            </div>
+                        </blockquote>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>C'est quoi un code propre ?</h2>
+                        <blockquote class="fragment">
+                            Clean code is not about beautifullness,<br>
+                             it's about goodness.
+                            <div align="right">
+                                Rebecca Wirfs-Brock
+                            </div>
+                        </blockquote>
+                        
+                        <blockquote class="fragment">
+                            <ul>
+                                <li>testé !</li>
+                                <li>sans duplication</li>
+                                <li>révèle son intention</li>
+                                <li>facile à lire</li>
+                            </ul>
+                            <div align="right" class="fragment">
+                                B. Stroustrup, R. Jeffries, K. Beck, M. Feathers, W. Cunningham, ...
+                            </div>
+                        </blockquote>
+                        
+                        
+                    </section>
+                    <section>
+                        <h2>À propos des tests</h2>
+                        <p>Quand on me dit que les tests c'est pour ceux qui ne savent pas coder.</p>
+                        <img src="images/test.gif" height="350" class="fragment">
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Smells</h2>
+                        <img src="images/smells.png" />
+                    </section>
+                    <section>
+                        <h2>Smells</h2>
+                        <ul>
+                            <li><span class="fragment highlight-red">S</span>ingleton</li>
+                            <li><span class="fragment highlight-red">T</span>ight coupling</li>
+                            <li><span class="fragment highlight-red">U</span>ntestable</li>
+                            <li><span class="fragment highlight-red">P</span>remature Optimisation</li>
+                            <li><span class="fragment highlight-red">I</span>ndescriptive naming</li>
+                            <li><span class="fragment highlight-red">D</span>uplication</li>
+                        </ul>
+                    </section>
+
+                </section>
+                <section>
+                    <section>
+                        <h2>Good practices</h2>
+                            <img src="images/good.png" />
+                    </section>
+                    <section>
+                        <h2>Good practices</h2>
+                        <ul>
+                            <li><span class="fragment highlight-green">S</span>ingle Responsability</li>
+                            <li><span class="fragment highlight-green">O</span>pen-closed principle</li>
+                            <li><span class="fragment highlight-green">L</span>iskov substitution principle</li>
+                            <li><span class="fragment highlight-green">I</span>nterface segregation principle</li>
+                            <li><span class="fragment highlight-green">D</span>ependency inversion principle</li>
+                        </ul>
+                    </section>
+                    <section>
+
+                        <h2 class="fragment highlight-green">Une bon nommage</h2>
+                        <ul>
+                            <li>le nommage doit révéler l'intention</li>
+                            <li><kbd>alt</kbd>+shift+r est votre ami (eclipse)</li>
+                        </ul>
+
+                        <h3 class="fragment">Let's see for real.</h3>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-red">Duplication</h2>
+                        <h3>DRY : Don't repeat yourself !</h3>
+                    </section>
+
+                    <section>
+                        <h2>Abstraction</h2>
+                        <h3>1 niveau par méthod</h3>
+                    </section>
+
+                    <section>
+                        <h2>Abstraction</h2>
+                        <h3>Demeter's Law</h3>
+                        <h4>Don't talk to stranger</h4>
+<pre><code data-trim contenteditable>
+a.getB().getC().doThings();
+</code></pre>                        
+                    </section>
+
+
+                    <section>
+                        <h2 class="fragment highlight-red">Couplage fort</h2>
+                        <h3 class="fragment">C'est mal !</h3>
+                        <ul class="fragment">
+                            <li>Tests</li>
+                            <li>Souplesse</li>
+                            <li>Réutilisation</li>
+                            <li>...</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-green">Injection de dépendance</h2>
+<pre><code data-trim contenteditable>
+public class A {
+    private B b;
+    public void execute(int i) {
+        b = new B();
+        C c = new C();
+
+        if (i <= 3) {
+            b.executeB();
+        } else {
+            c.executeC();
+        }
+    }
+}
+                    </code></pre>
+                    </section>
+
+                    <section>
+                        <h2>Méthodes</h2>
+                        <h3 class="fragment">Courtes</h3>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-red">Commentaires</h2>
+
+                        <blockquote>Comments are always failure
+                            <div align="right"><small>Uncle Bob</small></div>
+                        </blockquote>
+                        <blockquote>Don't comment bad code. Rewrite it.
+                            <div align="right"><small>Brian W. Kernighan, P.J. Plaugher</small></div>
+                        </blockquote>
+                        <br>
+                    </section>
+
+                    <section>
+                        <h2>Commentaires dans la vraie vie</h2>
+
+<pre><code data-trim>
+/*
+* A comment to please checkstyle
+*/</code></pre>
+<pre><code data-trim>
+/*
+* Set the port
+*
+* @params port
+*/
+public void setPort(Port port) {this.port=port}
+</code></pre>
+<pre><code data-trim>
+...
+        } /* end for */
+        dao.flush();
+      default : 
+        break;  
+      } /* end switch */
+    } /* end if */
+  } /* end if */
+} catch ...
+</code></pre>
+
+
+                    </section>
+
+                    <section>
+                        <h2>Commentaires : l'exception</h2>
+                        <h3>expliquer le pourquoi !</h3>
+                    </section>  
+
+                    <section>
+                        <h2>Commentaires</h2>
+                        <h3>Les tests me disent Quoi</h3>
+                        <h3>Le code me dit Comment</h3>
+                        <h3>Les commentaires me disent Pourquoi</h3>
+                    </section>
+
+                    <section>
+                        <h2>Gestion des exceptions</h2>
+                        <h3>Fail Fast</h3>
+                        <ol>
+                            <li>Do not check exception</li>
+                            <li>Manage exception as high as possible</li>
+                            <li>Never ever return null !</li>
+                        </ol>
+                    </section>
+
+                    <section>
+                        <h2>Tests</h2>
+                        <p>Ils vous donnent confiance pour modifier le code.</p>
+                        
+                        <ul>
+                            <li>un test, un assert</li>
+                            <li>lisible</li>
+                            <li>ils documentent votre code</li>
+                        </ul>
+                        <br>
+                        <br>
+
+                        <h3 class="fragment">Un test doit vous raconter une histoire.</h3>
+                        <h3 class="fragment">Les tests sont des citoyens de première classe.</h3>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Quelques conseils de plus</h2>
+                        <p>Ne pensez pas héritage, pensez <span class="fragment highlight-red">polymorphisme</span></p>
+                        <p>Ne pensez pas if/switch, pensez <span class="fragment highlight-red">polymorphisme</span></p>
+                        <br><br>
+                        <h3 class="fragment">évitez les <span class="fragment highlight-red">singletons</a></h3>
+                        <small class="fragment">Je vous avez prévénu que je me répeterai ;)</small>
+
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Read list</h2>
+                        <img width="200" src="images/clean_code.jpg">
+                        <img width="200" src="images/tdd.jpg"><br>
+                        <img width="200" src="images/goos.jpg">
+                        <img width="200" src="images/legacy.jpg">
+                        <img width="200" src="images/refactoring.jpg">
+                    </section>
+
+                    <section>
+                        <h2>Quotes</h2>
+                        <blockquote>Any fool can write code that a computer can understand. Good programmers write code that human can understand.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+                            <div align="right">
+                                <small>Martin Golding</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>...if you're afraid to change something it is clearly poorly designed.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h1>Et tout ça, ça commence la prochaine fois que vous écrirez ou lirez du code</h1>
+                    </section>
+                    <section>
+                        <h1>Merci !</h1>
+                        <h3 class="fragment">Des questions ?</h3>
+                    </section>
+                </section>
+            </div>
+
+        </div>
+
+        <script src="lib/js/head.min.js"></script>
+        <script src="js/reveal.min.js"></script>
+
+        <script>
+
+            // Full list of configuration options available here:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+                controls: true,
+                progress: true,
+                history: true,
+                center: true,
+
+                theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
+                transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Optional libraries used to extend on reveal.js
+                dependencies: [
+                    { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                    { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                    { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
+                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+                ]
+            });
+
+        </script>
+
+    </body>
+</html>
+
+a.b.c.d
