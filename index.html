@@ -4,10 +4,10 @@
     <head>
         <meta charset="utf-8">
 
-        <title>Clean Code in practice</title>
+        <title>Clean Code en pratique</title>
 
-        <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-        <meta name="author" content="Antoine Vernois et Jérôme Avoustin">
+        <meta name="description" content="Clean Code, tests and TDD">
+        <meta name="author" content="Antoine Vernois">
 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
@@ -35,18 +35,775 @@
         <div class="reveal">
 
             <div class="slides">
-                <section>
 
-                    <h1>Clean Code</h1>
-                    <h2>in practice</h2>
-                    <h3><a href="index-fr.html">Version Française</a></h3>
-                    <h3><a href="index-en.html">English version</a></h3>
+                <section>
+                    <h1>Ingénierie Logicielle</h1>
+                    <h1>Agile</h1>
+                    
+                    
                     <p>
-                        <small><a href="https://blog.crafting-labs.fr">Antoine Vernois</a> / <a href="http://twitter.com/avernois">@avernois</a></small>
+                        <small><a href="http://blog.crafting-labs.fr">Antoine Vernois</a> / <a href="http://twitter.com/avernois">@avernois</a></small>
+
                     </p>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Antoine Vernois</h2>
+                        <p>Agile Software Craftsman</p>
+                        <p class="fragment">Software Anarchist</p>
+                        <p>blog : <a href="https://blog.crafting-labs.fr">https://blog.crafting-labs.fr</a></p>
+                        <p>twitter : <a href="http://twitter.com/avernois">@avernois</a></p>
+                        <p>#ISpeakForFood</p>
+                    </section>
+
+                    <section>
+                        <h2>et vous ?</h2>
+                        <h3>post-it</h3>
+                        <p>Vous attendez quoi de cette formation ?</p>
+                        <br>
+                        <div class="fragment">
+                            <h3>tour de table</h3>
+
+                            <ul class="fragment">
+                                <li>qui êtes vous ?</li>
+                                <li>qu'est ce que vous faites ?</li>
+                                <li>qu'est ce que vous aimez ?</li>
+                                <li>qu'est ce que vous aimez moins ?</li>
+                                <li>votre expérience avec les tests et le tdd ?</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <section>
+                        <h3>détails pratiques</h3>
+                        <ul>
+                            <li>horaires</li>
+                            <li>repas</li>
+                            <li>pauses</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                    <h1>Clean Code, Tests</h1>
+                    <h1> et TDD</h1>
+                                        
+                    <p>
+                        <small><a href="http://blog.crafting-labs.fr">Antoine Vernois</a> / <a href="http://twitter.com/avernois">@avernois</a></small>
+                    </p>
+                </section>
 
                 </section>
 
+                <section>
+                    <section>
+                        <h2>Agilité et Qualité</h2>
+                        <blockquote>
+                            <p>Une attention <span class="fragment highlight-green">continue</span> à l'excellence technique et au bon design améliore l'agilité.</p>
+                            <div align="right" class="fragment">
+                                <small>Manifeste Agile, 9è principe</small>
+                            </div>
+                        </blockquote>                       
+                    </section>
+
+                    <section>
+                        <h2>Pourquoi la qualité ?</h2>
+                        
+                    </section>
+
+                    <section>
+                        <h2>Pourquoi la qualité ?</h2>
+                        <blockquote class="fragment">
+                            Répondre au changement plutôt que la poursuite d'un plan
+                            <div align="right">
+                                <small>Manifeste agile, 4è valeur</small>
+                            </div>
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <h2>C'est quoi la qualité ?</h2>
+                        <img src="images/clean_code_wtf.jpg">
+                    </section>
+
+                    <section>
+                        <h2>Quotes</h2>
+                        <blockquote>Any fool can write code that a computer can understand. Good programmers write code that human can understand.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+                            <div align="right">
+                                <small>Martin Golding</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>...if you're afraid to change something it is clearly poorly designed.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <h2>C'est quoi la qualité ?</h2>
+                        <blockquote>Un logiciel est de bonne qualité si le coût d'ajout d'une fonctionnalité est constant dans le temps.
+                            <div align="right">
+                                <small>Jérôme Avoustin</small>
+                            </div>
+                        </blockquote>
+                    </section>
+                </section>
+                
+                <section>
+                    <section>
+                        <h2>C'est quoi un code propre ?</h2>
+                        <blockquote class="fragment">
+                            Clean code is not about beautifullness,<br>
+                             it's about goodness.
+                            <div align="right">
+                                Rebecca Wirfs-Brock
+                            </div>
+                        </blockquote>
+                        
+                        <blockquote class="fragment">
+                            <ul>
+                                <li>testé !</li>
+                                <li>sans duplication</li>
+                                <li>révèle son intention</li>
+                                <li>facile à lire</li>
+                            </ul>
+                            <div align="right" class="fragment">
+                                B. Stroustrup, R. Jeffries, K. Beck, M. Feathers, W. Cunningham, ...
+                            </div>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h2>4 règles du design simple</h2>
+                        <blockquote class="fragment">
+                            <ul>
+                                <li>les tests passent</li>
+                                <li>clair, expressif et consistent</li>
+                                <li>sans duplication</li>
+                                <li>méthodes, classes, modules minimaux</li>
+                            </ul>
+                            <br>
+                            <br>
+                            <div align="right" class="fragment">
+                                Extreme Programming, Kent Beck
+                            </div>
+                        </blockquote>
+                        <br>
+                        <br>
+                        <h3 class="fragment">et voilà notre programme</h3>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>les tests passent</h1>
+                    </section>
+                    <section>
+                        <h2>Tests</h2>
+                        <p>Ils vous donnent confiance pour modifier le code.</p>
+                        
+                        <ul>
+                            <li>un test, un assert</li>
+                            <li>lisible</li>
+                            <li>ils documentent votre code</li>
+                        </ul>
+                        <br>
+                        <br>
+
+                        <h3 class="fragment">Un test doit vous raconter une histoire.</h3>
+                        <h3 class="fragment">Les tests sont des citoyens de première classe.</h3>
+                    </section>
+
+                    <section>
+                        <h2>3 types de tests</h2>
+                        <br>
+                        <h3>fonctionnels</h3>
+                        <h3>d'intégration</h3>
+                        <h3>unitaires</h3>
+                    </section>
+                </section>
+                <section>
+
+                    <section>
+                        <h2>les tests fonctionnels</h2>
+                        Souvent :<br>
+                        <ul>
+                            <li>les plus nombreux</li>
+                            <li>issus des specs</li>
+                            <li>écrits indépendamment des dev</li>
+                            <li>passés à la fin, à la main</li>
+                        </ul>
+                        <br>
+                        <br>
+                        <p class="fragment">Généralement, sources de problèmes et d'incompréhension</p>
+                    </section>
+                    <section>
+                        <h2>les tests fonctionnels</h2>
+                        et chez vous ?
+                    </section>
+                    <section>
+                        <h2>les tests fonctionnels</h2>
+                        Dans une approche agile :<br>
+                        <ul>
+                            <li>écrits conjointement</li>
+                            <li>basés sur des exemples</li>
+                            <li>deviennent la spécification</li>
+                            <li>disponible dès le début</li>
+                            <li>automatisés</li>
+                        </ul>
+                        <br>
+                        <br>
+                        <p class="fragment">Généralement, sources de collaboration</p>
+                    </section>
+                    <section>
+                        <h2>Spécification par l'exemple</h2>
+                        <p>1 exemple = 1 test</p>
+                        <p>écrit avant, il guide le développement</p>
+                        <br>
+                        <p>spécification exécutable</p>
+                    </section>
+
+                    <section>
+                        <h2>pourquoi automatiser ?</h2>
+                        <img class="fragment" src="images/ceintures_bretelles-mxbchr.jpg">
+                    </section>
+                    <section>
+                        <h2>pourquoi automatiser ?</h2>
+                        <p>feedback continu</p>
+                        <p>non-régression permanente</p>
+                        <p>plus fiable qu'un test manuel</p>
+                        <p>permet aux testeurs d'utiliser au mieux leurs compétences</p>
+
+                        <br>
+                        <h3 class="fragment">augmente la confiance</h3>
+                    </section>
+
+                </section>
+                <section>
+                    <section><h2>tests unitaires</h2></section>
+                    <section>
+                        <h2><span class="fragment">Ma </span>définition</h2>
+                        <dl class="fragment">
+                            <dt>Test unitaire</dt>
+                            <dd><p>un test qui vérifie un comportement d'un morceau de code isolé du reste.</p></dd>
+                        </dl>
+                    </section>
+                    
+                <section>
+                        <h2>Pourquoi ?</h2>
+                        <ul>
+                            <li class="fragment fade-out">parce que c'est à la mode !?</li>
+                            
+                            <li class="fragment">les tests sont une preuve que votre code fait ce qu'il est supposé faire.</li>
+                            <li class="fragment">au plus tôt on trouve le problème, le moins cher coûte sa résolution.</li>
+                            <li class="fragment">ils donnent confiance lorsqu'on fait des modifications.</li>
+                            <li class="fragment">rendre un code testable (et testé) conduit souvent à un meilleur design.</li>
+                            <li class="fragment">les tests expliquent ce que fait votre code.</li>
+                        </ul>
+                    </section>
+                        
+                    <section  data-background="images/andrechinn-one.jpg">
+                        <h2>Qualité d'un test unitaire</h2>
+                        <ul class="fragment">
+                            <li><span class="fragment highlight-green">F</span>ast</li>
+                            <li><span class="fragment highlight-green">I</span>solated</li>
+                            <li><span class="fragment highlight-green">R</span>epeatable</li>
+                            <li><span class="fragment highlight-green">S</span>elf-validating</li>
+                            <li><span class="fragment highlight-green">T</span>imely</li>                       
+                        </ul>
+                    </section>
+
+                </section>
+                <section>
+                    <section data-background="images/jenny_downing-after_the_rain.jpg">
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h2>Test After.</h2>
+                        <h3>Les tests après.</h3>
+                    </section>
+
+                    <section data-background="images/markus_spiske-bowling.jpg">
+                        <h1>bowling time !</h1>
+                    </section>
+                
+                    <section data-background="images/barbara_muller_walter-after_work.jpg">
+                        <h2>(faux) problèmes</h2>
+                        <blockquote>C'est bon ça marche, pas besoin de test.</blockquote>
+                        <blockquote class="fragment">Je suis à la bourre, et j'ai du fonctionnel plus important. J'écrirai les tests plus tard.</blockquote>
+                        <blockquote class="fragment">Les tests c'est pour ceux qui savent pas coder.</blockquote>
+                    </section>
+
+                    <section>
+                    
+                        <img src="images/test.gif" height="800"><small>
+                        <p>
+                        <a href="http://thecodinglove.com/post/43737038742/when-an-intern-tells-me-tests-are-for-people-who-dont">lesjoiesducode.fr</a></small>
+                        </p>
+                    
+                        
+                    </section>
+                
+                    <section data-background="images/rachel_zack-kitchen_sink.jpg">
+                        <h2>(gros) problèmes</h2>
+                        <ul align="left">
+                            <li>on peut avoir écrit du code qui n'est pas testable.</li>
+                            <li class="fragment">on ne voit jamais les tests échouer</li>
+                            <li class="fragment">souvent, les tests sont écrits en étudiant le code.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section data-background="images/woodleywonderworks-dark_before_dark.jpg">
+                        <h2>Test First</h2>
+                        <h3>Les tests d'abord.</h3>
+                    </section>
+                    <section>
+                        <h2>Les tests d'abord.</h3>
+                        <ol>
+                            <li>Réfléchir à ce que je veux faire.</li>
+                            <li>Écrire les tests correspondants.</li>
+                            <li>Écrire le code qui les fera passer.</li>
+                        </ol>
+                        <br>
+                        <br>
+                        <h3 class="fragment">Enjoy.</h3>
+                    </section>
+
+                    <section>
+                        <h2>l'intérêt</h2>
+                        <ul>
+                            <li>au moins, on est sur que les tests seront écrits</li>
+                            <li>le code sera forcemment testable</li>
+                        </ul>
+
+                    </section>
+
+                    <section data-background="images/alexander_c_kafka-bowling_pins.jpg">
+                        <h1>bowling time !</h1>
+                    </section>
+
+                    <section data-background="images/pargon-kitten_and_scholar.jpg">
+                        <br><br>
+                        <h1>instant confession</h1>
+                    </section>
+
+                    <section>
+                        <h2>problèmes</h2>
+                        <ul>
+                            <li>les tests sont rouges pendant longtemps</li>
+                            <li>ça impose un big design upfront</li>
+                            <li>erreur et oubli obligent à presque tout refaire</li>
+                            <li>le passage du rouge au vert n'est pas toujours net</li>
+                        </ul>
+                    </section>
+                </section>
+                    
+                <section>
+                    <section>
+                        <h2>TDD : Test Driven Developpement</h2>
+                        <h3>Développement guidé par les tests</h3>
+                    </section>
+                    <section data-background="images/wonderlane-fu_return.jpg">
+                        <h3>Développement guidé par les tests</h3>
+                        <ol>
+                            <li>Écrire exactement un test qui échoue.</li>
+                            <li>Le faire passer.</li>
+                            <li>Nettoyer.</li>
+                        </ol>   
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <h3 class="fragment">Répéter.</h3>
+                    </section>
+                    <section data-background="images/trevor_leyenhorst-bokeh.jpg">
+                        <h2>Test Driven Developpement</h2>
+                        <ol>
+                            <li class="fragment highlight-red">Red</li>
+                            <li class="fragment highlight-green">Green</li>
+                            <li class="fragment highlight-green">Refactor</li>
+                        </ol>
+                        <br>
+                        <br>
+                        <h3 class="fragment">That's all !</h3>
+                    </section>
+
+                    <section>
+                        <h2>Test Driven Developpement</h2>
+                        <h3 class="fragment">variation git</h3>
+                        <ol>
+                            <li class="fragment highlight-red">Red</li>
+                            <li class="fragment highlight-green">Green</li>
+                            <li class="fragment">git commit</li>
+                            <li class="fragment highlight-green">Refactor</li>
+                            <li class="fragment">git commit</li>
+                        </ol>
+                    </section>
+                    <section data-background="images/ginny-bowling.jpg">
+                        <h1>bowling time !</h1>
+                    </section>
+
+                </section>
+
+                <section>
+                    <h2>2 écoles de TDD</h2>
+                    <h3>Classical / Inside Out</h3>
+                    <h3>London style / mockist / Outside In</h3>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>design émergent</h2>
+                        <blockquote>First make it works, then make it right
+                            <div align="right">
+                                <small>Kent Beck</small>
+                            </div>
+                        </blockquote>
+
+                        Le code n'est ajouté que pour répondre à la nécessité de faire passer un test.
+                    </section>
+
+                    <section>
+                        <h2>Quick Design session</h2>
+                        <p>entre developpeurs</p>
+                        <p>quelques minutes</p>
+                        <p>aussi souvent que nécessaire</p>
+                        <p>au tableau</p>
+                        <p>CRC : Class, Responsability, Collaboration</p>
+                    </section>
+
+                    <section>
+                        <h2>Simplicité</h2>
+                        <p>YAGNI : You aren't gonna need it</p>
+                        <p>les décisions sont prises au dernier moment responsable</p>
+                        <br>
+                        <br>
+                        <h3 class="fragment">ne pas confondre simplicité et facilité</h3>
+                    </section>
+
+                    <section>
+                        <h2>XP feedback loops</h2>
+                        <img src="images/XP-feedback.gif">
+                    </section>
+
+                    <section><h2>et les méthodes privées ?</h2></section>
+                </section>
+                <section>
+                    <section>
+                        <h2>les autres xDD</h2>
+                        <dl class="fragment">
+                            <dt>ATDD</dt>
+                            <dd><p>Acceptance Test Driven Developpement</p></dd>
+                            <dt>BDD</dt>
+                            <dd><p>Behaviour Driven Developpement</p></dd>
+                        </dl>
+                    </section>
+                    <section>
+                        <h2>BDD</h2>
+
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Smells</h2>
+                        <img src="images/smells.png" />
+                    </section>
+                    <section>
+                        <h2>Smells</h2>
+                        <ul>
+                            <li><span class="fragment highlight-red">S</span>ingleton</li>
+                            <li><span class="fragment highlight-red">T</span>ight coupling</li>
+                            <li><span class="fragment highlight-red">U</span>ntestable</li>
+                            <li><span class="fragment highlight-red">P</span>remature Optimisation</li>
+                            <li><span class="fragment highlight-red">I</span>ndescriptive naming</li>
+                            <li><span class="fragment highlight-red">D</span>uplication</li>
+                        </ul>
+                    </section>
+
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Good practices</h2>
+                            <img src="images/good.png" />
+                    </section>
+                    <section>
+                        <h2>4 règles du design simple</h2>
+                        <blockquote class="fragment">
+                            <ul>
+                                <li>les tests passent</li>
+                                <li>clair, expressif et consistent</li>
+                                <li>sans duplication</li>
+                                <li>méthodes, classes, modules minimaux</li>
+                            </ul>
+                            <br>
+                            <br>
+                            <div align="right" class="fragment">
+                                Extreme Programming, Kent Beck
+                            </div>
+                        </blockquote>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-green">Un bon nommage</h2>
+                        <ul>
+                            <li>le nommage doit révéler l'intention</li>
+                            <li><kbd>alt</kbd>+shift+r est votre ami (eclipse)</li>
+                        </ul>
+
+                        <h3 class="fragment">Let's see for real.</h3>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-red">Duplication</h2>
+                        <h3>DRY : Don't repeat yourself !</h3>
+                    </section>
+                </section>
+
+
+
+                <section>
+
+                    <section>
+                        <h2>Abstraction</h2>
+                        <h3>1 niveau par méthod</h3>
+                    </section>
+
+                    <section>
+                        <h2>Abstraction</h2>
+                        <h3>Demeter's Law</h3>
+                        <h4>Don't talk to stranger</h4>
+<pre><code data-trim>
+a.getB().getC().doThings(); // NO !
+</code></pre>
+<pre class="fragment"><code data-trim>
+class A {
+    B b;
+    doThings() {
+        b.doThings();
+    }
+    ...
+}
+class B {
+    C c;
+    doThings() {
+        c.doThings();
+    }
+    ...
+}
+a.doThings();
+</code></pre>                        
+                    </section>
+
+
+                    <section>
+                        <h2 class="fragment highlight-red">Couplage fort</h2>
+                        <h3 class="fragment">C'est mal !</h3>
+                        <ul class="fragment">
+                            <li>Tests</li>
+                            <li>Souplesse</li>
+                            <li>Réutilisation</li>
+                            <li>...</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-green">Injection de dépendance</h2>
+<pre><code data-trim contenteditable>
+public class A {
+    private B b;
+    public void execute(int i) {
+        b = new B();
+        C c = new C();
+
+        if (i <= 3) {
+            b.executeB();
+        } else {
+            c.executeC();
+        }
+    }
+}
+public void main(){
+    A a = new A();
+    a.execute();
+}
+                    </code></pre>
+                    </section>
+                    <section>
+<pre><code data-trim contenteditable>
+public class A {
+    private B b;
+    public A(B b) { this.b = b; }
+    public void execute(int i, C c) {
+        if (i <= 3) {
+            b.executeB();
+        } else {
+            c.executeC();
+        }
+    }
+}
+public void main(){
+    B b = new B();
+    A a = new A(b);
+    a.execute(3, new C());
+}
+</code></pre>
+
+
+                    </section>  
+                    <section>
+                        <h2>Méthodes</h2>
+                        <h3 class="fragment">Courtes</h3>
+                    </section>
+
+                    <section>
+                        <h2 class="fragment highlight-red">Commentaires</h2>
+
+                        <blockquote>Comments are always failure
+                            <div align="right"><small>Uncle Bob</small></div>
+                        </blockquote>
+                        <blockquote>Don't comment bad code. Rewrite it.
+                            <div align="right"><small>Brian W. Kernighan, P.J. Plaugher</small></div>
+                        </blockquote>
+                        <br>
+                    </section>
+
+                    <section>
+                        <h2>Commentaires dans la vraie vie</h2>
+
+<pre><code data-trim>
+/*
+* A comment to please checkstyle
+*/</code></pre>
+<pre><code data-trim>
+/*
+* Set the port
+*
+* @params port
+*/
+public void setPort(Port port) {this.port=port}
+</code></pre>
+<pre><code data-trim>
+...
+        } /* end for */
+        dao.flush();
+      default : 
+        break;  
+      } /* end switch */
+    } /* end if */
+  } /* end if */
+} catch ...
+</code></pre>
+
+
+                    </section>
+
+                    <section>
+                        <h2>Commentaires : l'exception</h2>
+                        <h3>expliquer le pourquoi !</h3>
+                    </section>  
+
+                    <section>
+                        <h2>Commentaires</h2>
+                        <h3>Les tests me disent Quoi</h3>
+                        <h3>Le code me dit Comment</h3>
+                        <h3>Les commentaires me disent Pourquoi</h3>
+                    </section>
+
+
+                    <section>
+                        <h2>SOLID</h2>
+                    </section>
+                    <section><img src="images/solid.jpg"></section>
+
+                    <section><img src="images/solid_srp.jpg"></section>
+                    <section><img src="images/solid_ocp.jpg"></section>
+                    <section><img src="images/solid_lsp.jpg"></section>
+                    <section><img src="images/solid_isp.jpg"></section>
+                    <section><img src="images/solid_dip.jpg"></section>
+
+
+
+                    <section>
+                        <h2>Gestion des exceptions</h2>
+                        <h3>Fail Fast</h3>
+                        <ol>
+                            <li>Do not check exception</li>
+                            <li>Manage exception as high as possible</li>
+                            <li>Never ever return null !</li>
+                        </ol>
+                    </section>
+                    <section><h1>never ever return null</h1></section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Quelques conseils de plus</h2>
+                        <p>Ne pensez pas héritage, pensez <span class="fragment highlight-green">polymorphisme</span></p>
+                        <p>Ne pensez pas if/switch, pensez <span class="fragment highlight-green">polymorphisme</span></p>
+                        <br><br>
+                        <h3 class="fragment">évitez les <span class="fragment highlight-red">singletons</a></h3>
+                    </section>
+                </section>
+
+                <section>
+
+                    <section><h1>Legacy code</h1></section>
+                    <section>
+
+                    </section>
+                </section>
+
+                <section>
+                    <section><h2>Intégration continue</h2></section>
+                    <section><h2>Pair Programming</h2></section>
+                    <section><h2>Propriété collective</h2></section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Read list</h2>
+                        <img width="200" src="images/clean_code.jpg">
+                        <img width="200" src="images/tdd.jpg"><br>
+                        <img width="200" src="images/goos.jpg">
+                        <img width="200" src="images/legacy.jpg">
+                        <img width="200" src="images/refactoring.jpg">
+                    </section>
+
+                    <section>
+                        <h2>Quotes</h2>
+                        <blockquote>Any fool can write code that a computer can understand. Good programmers write code that human can understand.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>Always code as if the guy who ends up maintaining your code will be a violent psychopath who knows where you live.
+                            <div align="right">
+                                <small>Martin Golding</small>
+                            </div>
+                        </blockquote>
+                        <blockquote>...if you're afraid to change something it is clearly poorly designed.
+                            <div align="right">
+                                <small>Martin Fowler</small>
+                            </div>
+                        </blockquote>
+                    </section>
+                    <section>
+                        <h1>Et tout ça, ça commence la prochaine fois que vous écrirez ou lirez du code</h1>
+                    </section>
+                    <section>
+                        <h1>Merci !</h1>
+                        <h3 class="fragment">Des questions ?</h3>
+                    </section>
+                </section>
             </div>
 
         </div>
@@ -64,7 +821,7 @@
                 history: true,
                 center: true,
 
-                theme: Reveal.getQueryHash().theme || 'default', // available themes are in /css/theme
+                theme: 'default', // available themes are in /css/theme
                 transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
 
                 // Optional libraries used to extend on reveal.js
@@ -75,12 +832,11 @@
                     { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
                     { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
                     { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
-                    // { src: 'plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; } }
-                    // { src: 'plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
                 ]
             });
 
         </script>
+
 
     </body>
 </html>
